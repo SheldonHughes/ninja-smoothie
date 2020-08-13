@@ -10,6 +10,11 @@
                     </li>
                 </ul>
             </div>
+            <router-link :to="{ name: 'EditSmoothie', params: { smoothie_slug: smoothie.slug }}">
+                <span class="btn-floating btn-large halfway-fab pink">
+                    <i class="material-icons edit">edit</i>
+                </span>                   
+            </router-link>
         </div>
     </div>
 </template>
@@ -39,7 +44,7 @@ export default {
         db.collection('smoothies').get()
         .then(snapshot => {
             snapshot.forEach(doc => {
-                console.log(doc.data(), 'id:' + doc.id);
+                //console.log(doc.data(), 'id:' + doc.id);
                 let smoothie = doc.data();
                 smoothie.id = doc.id;
                 this.smoothies.push(smoothie)
