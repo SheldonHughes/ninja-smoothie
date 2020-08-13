@@ -1,20 +1,22 @@
 <template>
-    <div class="index container">
-        <div class="card" v-for="smoothie in smoothies" :key="smoothie.id">
-            <div class="card-content">
-                <i class="material-icons delete" @click="deleteSmoothie(smoothie.id)">delete</i>
-                <h2 class="indigo-text">{{ smoothie.title }}</h2>
-                <ul class="ingredients">
-                    <li v-for="(ing, index) in smoothie.ingredients" :key="index">  
-                        <span class="chip">{{ ing }}</span>
-                    </li>
-                </ul>
+    <div class="landing-wrapper">
+        <div class="index container">
+            <div class="card" v-for="smoothie in smoothies" :key="smoothie.id">
+                <div class="card-content">
+                    <i class="material-icons delete" @click="deleteSmoothie(smoothie.id)">delete</i>
+                    <h2 class="indigo-text">{{ smoothie.title }}</h2>
+                    <ul class="ingredients">
+                        <li v-for="(ing, index) in smoothie.ingredients" :key="index">  
+                            <span class="chip">{{ ing }}</span>
+                        </li>
+                    </ul>
+                </div>
+                <router-link :to="{ name: 'EditSmoothie', params: { smoothie_slug: smoothie.slug }}">
+                    <span class="btn-floating btn-large halfway-fab pink">
+                        <i class="material-icons edit">edit</i>
+                    </span>                   
+                </router-link>
             </div>
-            <router-link :to="{ name: 'EditSmoothie', params: { smoothie_slug: smoothie.slug }}">
-                <span class="btn-floating btn-large halfway-fab pink">
-                    <i class="material-icons edit">edit</i>
-                </span>                   
-            </router-link>
         </div>
     </div>
 </template>
@@ -79,5 +81,10 @@ export default {
     cursor: pointer;
     color: #aaa;
     font-size: 1.4ems;
+}
+.landing-wrapper{
+    width:100%;
+    height: 100%;
+    background-image:url("/coconut-smoothie.jpg");  
 }
 </style>
