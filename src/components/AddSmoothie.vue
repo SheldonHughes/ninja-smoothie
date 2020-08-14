@@ -1,26 +1,28 @@
 <template>
-   <div class="container add-smoothie">
-       <h2 class="center-align indigo-text">Add new smoothie recipe</h2>
-       <form @submit.prevent="AddSmoothie">
-           <div class="field title">
-               <label for="title">Smoothie title:</label>
-               <input type="text" name='title' v-model="title">
-           </div>
-           <div v-for="(ing, index) in ingredients" :key="index" class="field">
-               <label for="ingredient"></label>
-               <input type="text" name="ingredient" v-model="ingredients[index]">
-               <i class="material-icons delete" @click="deleteIng(ing)">delete</i>
-           </div>
-           <div class="field add-ingredient">
-               <label for="add-ingredient">Add ingredient:</label>
-               <input type="text" name="add-ingredient" @keydown.tab.prevent="addIng" v-model="another">
-           </div>
-           <div class="field center-align">
-               <p v-if="feedback" class="red-text">{{ feedback }}</p>
-               <button class="btn pink">Add smoothie</button> 
-           </div>
-       </form>
-   </div>
+    <div class="add-smoothie-background">
+        <div class="container add-smoothie">
+        <h2 class="center-align indigo-text">Add new smoothie recipe</h2>
+            <form @submit.prevent="AddSmoothie">
+                <div class="field title">
+                    <label for="title">Smoothie title:</label>
+                    <input type="text" name='title' v-model="title">
+                </div>
+                <div v-for="(ing, index) in ingredients" :key="index" class="field">
+                    <label for="ingredient"></label>
+                    <input type="text" name="ingredient" v-model="ingredients[index]">
+                    <i class="material-icons delete" @click="deleteIng(ing)">delete</i>
+                </div>
+                <div class="field add-ingredient">
+                    <label for="add-ingredient">Add ingredient:</label>
+                    <input type="text" name="add-ingredient" @keydown.tab.prevent="addIng" v-model="another">
+                </div>
+                <div class="field center-align">
+                    <p v-if="feedback" class="red-text">{{ feedback }}</p>
+                    <button class="btn pink">Add smoothie</button> 
+                </div>
+            </form>
+        </div>
+    </div>   
 </template>
 
 <script>
@@ -84,8 +86,7 @@ export default {
 
 <style>
 .add-smoothie{
-   margin-top: 60px;
-   padding: 20px;
+   padding: 40px;
    max-width: 500px;
 }
 .add-smoothie h2{
@@ -95,6 +96,7 @@ export default {
 .add-smoothie .field{
     margin: 20px auto;
     position: relative;
+    font-weight: bold;
 }
 .add-smoothie .delete{
     position: absolute;
@@ -103,6 +105,12 @@ export default {
     color: #aaa;
     font-size: 1.4em;
     cursor: pointer;
+}
+.add-smoothie-background{
+    background: url("../assets/purple-smoothie.jpg");
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-size: cover;
 }
 </style>
 

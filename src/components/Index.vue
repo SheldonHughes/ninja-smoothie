@@ -61,7 +61,8 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
-    margin-top: 60px;
+    margin-top: 0px;
+    padding: 60px;
 }
 .index h2{
     font-weight: 600;
