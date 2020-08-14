@@ -1,7 +1,7 @@
 <template>
-    <div class="landing-wrapper">
+    <div class="background">
         <div class="index container">
-            <div class="card" v-for="smoothie in smoothies" :key="smoothie.id">
+            <div class="card transparent z-depth-4" v-for="smoothie in smoothies" :key="smoothie.id">
                 <div class="card-content">
                     <i class="material-icons delete" @click="deleteSmoothie(smoothie.id)">delete</i>
                     <h2 class="indigo-text">{{ smoothie.title }}</h2>
@@ -64,7 +64,8 @@ export default {
     margin-top: 60px;
 }
 .index h2{
-    font-size: 1.8em;
+    font-weight: 600;
+    font-size: 2.2em;
     text-align: center;
     margin-top: 0;
 }
@@ -82,9 +83,10 @@ export default {
     color: #aaa;
     font-size: 1.4ems;
 }
-.landing-wrapper{
-    width:100%;
-    height: 100%;
-    background-image:url("/coconut-smoothie.jpg");  
+.background{
+    background: url("../assets/coconut-smoothie.jpg");
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-size: cover;
 }
 </style>
